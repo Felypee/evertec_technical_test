@@ -1,0 +1,103 @@
+{
+  "app": {
+    "title": "SpaceX Launches",
+    "name": "SpaceX Launches"
+  },
+  "login": {
+    "welcome": "Welcome!",
+    "subtitle": "Sign in to continue",
+    "username": "Username",
+    "password": "Password",
+    "button": "Sign In",
+    "password_requirements": "Password requirements:",
+    "first_time_note": "If this is your first time, an account will be created automatically with these credentials."
+  },
+  "password": {
+    "min_chars": "At least 8 characters",
+    "uppercase": "At least one uppercase letter",
+    "lowercase": "At least one lowercase letter",
+    "number": "At least one number",
+    "special": "At least one special character"
+  },
+  "home": {
+    "title": "SpaceX Launches",
+    "subtitle": "Explore the final frontier",
+    "search_hint": "Search launches...",
+    "no_results": "No launches found",
+    "clear_filters": "Clear filters",
+    "error_title": "Error loading",
+    "retry": "Retry"
+  },
+  "detail": {
+    "information": "Information",
+    "rocket": "Rocket",
+    "launchpad": "Launchpad",
+    "date": "Launch Date",
+    "flight": "Flight Number",
+    "description": "Mission Details",
+    "links": "Links",
+    "no_links": "No links available",
+    "photos": "Mission Photos",
+    "error_title": "Error loading launch",
+    "retry": "Retry",
+    "unknown": "Unknown",
+    "unknown_rocket": "Unknown Rocket",
+    "watch_video": "WATCH VIDEO",
+    "watch_youtube": "Watch on YouTube",
+    "wikipedia": "Wikipedia",
+    "article": "Article"
+  },
+  "filters": {
+    "title": "Filters",
+    "clear": "Clear",
+    "status": "Status",
+    "rocket": "Rocket",
+    "apply": "Apply filters",
+    "error_loading": "Error loading options"
+  },
+  "status": {
+    "success": "Success",
+    "failed": "Failed",
+    "upcoming": "Upcoming"
+  },
+  "card": {
+    "video": "VIDEO",
+    "watch": "Watch",
+    "wiki": "Wiki",
+    "news": "News",
+    "tap_details": "Tap for details",
+    "tap_view": "Tap to view"
+  },
+  "profile": {
+    "title": "Profile",
+    "welcome": "Welcome back",
+    "appearance": "Appearance",
+    "account": "Account",
+    "logout": "Log out",
+    "logout_description": "Sign out of your current account",
+    "user": "User"
+  },
+  "settings": {
+    "theme": "Theme",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "theme_system": "System",
+    "language": "Language"
+  },
+  "logout": {
+    "title": "Log out",
+    "message": "Are you sure you want to log out?",
+    "cancel": "Cancel",
+    "confirm": "Log out"
+  },
+  "connectivity": {
+    "offline": "Offline - Showing cached data"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "retry": "Retry",
+    "network": "Connection error",
+    "server": "Server error",
+    "unknown": "Unknown error"
+  }
+}

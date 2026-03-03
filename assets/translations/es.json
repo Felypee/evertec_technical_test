@@ -1,0 +1,103 @@
+{
+  "app": {
+    "title": "Lanzamientos SpaceX",
+    "name": "Lanzamientos SpaceX"
+  },
+  "login": {
+    "welcome": "¡Bienvenido!",
+    "subtitle": "Inicia sesión para continuar",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "button": "Iniciar Sesión",
+    "password_requirements": "Requisitos de contraseña:",
+    "first_time_note": "Si es tu primera vez, se creará una cuenta con estas credenciales automáticamente."
+  },
+  "password": {
+    "min_chars": "Mínimo 8 caracteres",
+    "uppercase": "Al menos una mayúscula",
+    "lowercase": "Al menos una minúscula",
+    "number": "Al menos un número",
+    "special": "Al menos un carácter especial"
+  },
+  "home": {
+    "title": "Lanzamientos SpaceX",
+    "subtitle": "Explora la última frontera",
+    "search_hint": "Buscar lanzamientos...",
+    "no_results": "No se encontraron lanzamientos",
+    "clear_filters": "Limpiar filtros",
+    "error_title": "Error al cargar",
+    "retry": "Reintentar"
+  },
+  "detail": {
+    "information": "Información",
+    "rocket": "Cohete",
+    "launchpad": "Plataforma",
+    "date": "Fecha de Lanzamiento",
+    "flight": "Número de Vuelo",
+    "description": "Detalles de la Misión",
+    "links": "Enlaces",
+    "no_links": "No hay enlaces disponibles",
+    "photos": "Fotos de la Misión",
+    "error_title": "Error al cargar lanzamiento",
+    "retry": "Reintentar",
+    "unknown": "Desconocido",
+    "unknown_rocket": "Cohete desconocido",
+    "watch_video": "VER VIDEO",
+    "watch_youtube": "Ver en YouTube",
+    "wikipedia": "Wikipedia",
+    "article": "Artículo"
+  },
+  "filters": {
+    "title": "Filtros",
+    "clear": "Limpiar",
+    "status": "Estado",
+    "rocket": "Cohete",
+    "apply": "Aplicar filtros",
+    "error_loading": "Error al cargar opciones"
+  },
+  "status": {
+    "success": "Exitoso",
+    "failed": "Fallido",
+    "upcoming": "Próximo"
+  },
+  "card": {
+    "video": "VIDEO",
+    "watch": "Ver",
+    "wiki": "Wiki",
+    "news": "Noticias",
+    "tap_details": "Toca para detalles",
+    "tap_view": "Toca para ver"
+  },
+  "profile": {
+    "title": "Perfil",
+    "welcome": "Bienvenido de nuevo",
+    "appearance": "Apariencia",
+    "account": "Cuenta",
+    "logout": "Cerrar sesión",
+    "logout_description": "Salir de tu cuenta actual",
+    "user": "Usuario"
+  },
+  "settings": {
+    "theme": "Tema",
+    "theme_light": "Claro",
+    "theme_dark": "Oscuro",
+    "theme_system": "Sistema",
+    "language": "Idioma"
+  },
+  "logout": {
+    "title": "Cerrar sesión",
+    "message": "¿Estás seguro de que deseas cerrar sesión?",
+    "cancel": "Cancelar",
+    "confirm": "Cerrar sesión"
+  },
+  "connectivity": {
+    "offline": "Sin conexión - Mostrando datos en caché"
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "retry": "Reintentar",
+    "network": "Error de conexión",
+    "server": "Error del servidor",
+    "unknown": "Error desconocido"
+  }
+}
