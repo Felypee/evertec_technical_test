@@ -1,0 +1,77 @@
+name: evertec_technical_test
+description: "Prueba técnica Evertec - App SpaceX Launches con Flutter"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # UI
+  cupertino_icons: ^1.0.8
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  flutter_animate: ^4.5.2
+  lottie: ^3.3.1
+
+  # Estado
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # Modelos
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # HTTP
+  dio: ^5.8.0+1
+
+  # Navegación
+  go_router: ^14.8.1
+
+  # Base de datos local
+  drift: ^2.25.0
+  sqlite3_flutter_libs: ^0.5.31
+
+  # Almacenamiento seguro
+  flutter_secure_storage: ^9.2.4
+
+  # Conectividad
+  connectivity_plus: ^6.1.4
+
+  # Internacionalización
+  easy_localization: ^3.0.7+1
+
+  # Utilidades
+  path_provider: ^2.1.5
+  path: ^1.9.1
+  crypto: ^3.0.6
+  url_launcher: ^6.3.1
+  package_info_plus: ^8.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  # Generación de código
+  build_runner: ^2.4.15
+  freezed: ^3.0.0
+  json_serializable: ^6.9.4
+  riverpod_generator: ^2.6.5
+  drift_dev: ^2.25.0
+
+  # Testing
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/translations/
+    - assets/animations/
+    - assets/images/
