@@ -149,6 +149,68 @@ Future<List<LaunchModel>> getLaunches() async {
 }
 ```
 
+## Decisiones Tecnicas
+
+### Por que Riverpod en lugar de BLoC/Cubit?
+
+| Aspecto | BLoC/Cubit | Riverpod |
+|---------|------------|----------|
+| Boilerplate | Alto (Events, States, BLoC) | Minimo (Provider + Notifier) |
+| Compile-time safety | No | Si |
+| Inyeccion de dependencias | Requiere get_it o similar | Integrada |
+| Performance | Buena | Excelente (granular rebuilds) |
+
+**Argumentacion:**
+1. **Compile-time Safety**: Riverpod detecta errores en tiempo de compilacion, no en runtime, reduciendo bugs en produccion.
+2. **Menor codigo**: Un `StateNotifier` reemplaza la triada Event + State + BLoC, reduciendo lineas de codigo en ~60%.
+3. **DI integrada**: No requiere paquetes adicionales como `get_it` o `injectable`, simplificando el arbol de dependencias.
+4. **Auto-dispose**: Los providers se limpian automaticamente cuando no se usan, evitando memory leaks.
+5. **Evolucion de Provider**: Creado por Remi Rousselet (autor de Provider), representa la evolucion natural del patron.
+
+### Por que Drift (SQLite) para persistencia?
+
+**Alternativas evaluadas:**
+- **Isar**: NoSQL muy rapido, pero en proceso de deprecacion (no es opcion viable a largo plazo)
+- **Hive**: NoSQL simple, pero limitado en queries complejas y relaciones
+- **SharedPreferences**: Solo key-value, insuficiente para datos estructurados
+
+**Argumentacion:**
+1. **Type-safety**: Las queries SQL se verifican en compilacion, evitando errores de sintaxis en runtime.
+2. **Relaciones**: Soporte completo para relaciones entre tablas (launches ↔ rockets ↔ launchpads).
+3. **Migraciones**: Sistema robusto de migraciones de schema, critico para actualizaciones de la app.
+4. **Performance**: SQLite es extremadamente eficiente y probado en millones de apps.
+5. **Queries complejas**: Filtros, ordenamiento y busqueda full-text sin limitaciones.
+
+### Por que GoRouter para navegacion?
+
+1. **Declarativo**: Todas las rutas definidas en un solo archivo, facil de auditar y mantener.
+2. **Guards integrados**: Redireccion de autenticacion sin codigo adicional.
+3. **Deep linking**: Soporte nativo para URLs, preparado para web y universal links.
+4. **Mantenido por Flutter**: Garantia de compatibilidad y actualizaciones.
+
+### Estrategia Offline-First
+
+```
+Con conexion:    API → Guardar en cache → Mostrar datos
+Sin conexion:    Cache → Mostrar + Banner offline
+Sin conexion + Sin cache: Error + Boton reintentar
+```
+
+Esta estrategia garantiza que la app sea funcional incluso sin conectividad, priorizando la experiencia del usuario sobre la frescura de los datos.
+
+### Resumen de Stack
+
+| Categoria | Paquete | Justificacion |
+|-----------|---------|---------------|
+| Estado | flutter_riverpod | Type-safe, menos boilerplate, DI integrada |
+| DB Local | drift | SQL type-safe, migraciones, relaciones |
+| HTTP | dio | Interceptors, cancelacion, retry |
+| Navegacion | go_router | Declarativo, guards, deep linking |
+| Conectividad | connectivity_plus | Multiplataforma, stream reactivo |
+| Storage seguro | flutter_secure_storage | Encriptacion nativa por plataforma |
+
+> Para documentacion detallada ver [docs/TECHNICAL_DECISIONS.md](docs/TECHNICAL_DECISIONS.md)
+
 ## Capturas de Pantalla
 
 ### Login
