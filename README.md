@@ -211,6 +211,10 @@ Esta estrategia garantiza que la app sea funcional incluso sin conectividad, pri
 
 > Para documentacion detallada ver [docs/TECHNICAL_DECISIONS.md](docs/TECHNICAL_DECISIONS.md)
 
+## Demo
+
+<video src="https://github.com/Felypee/evertec_technical_test/raw/main/docs/video_evertec.mp4" controls width="300"></video>
+
 ## Capturas de Pantalla
 
 ### Login
