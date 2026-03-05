@@ -784,7 +784,7 @@ class _ParallaxGalleryState extends State<_ParallaxGallery> {
                 child: Transform.translate(
                   offset: Offset(parallaxOffset.clamp(-50.0, 50.0), 0),
                   child: Transform.scale(
-                    scale: 1.2, // Zoom para cubrir durante el parallax
+                    scale: 1.5, // Zoom para cubrir durante el parallax
                     child: CachedNetworkImage(
                       imageUrl: widget.images[index],
                       fit: BoxFit.cover,
