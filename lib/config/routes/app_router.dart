@@ -7,6 +7,7 @@ import '../../features/auth/ui/login_screen.dart';
 import '../../features/detail/ui/launch_detail_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/profile/ui/profile_screen.dart';
+import '../../features/splash/ui/splash_screen.dart';
 import 'routes.dart';
 import 'transitions.dart';
 
@@ -36,7 +37,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   final authNotifier = ref.watch(authNotifierProvider);
 
   return GoRouter(
-    initialLocation: Routes.login,
+    initialLocation: Routes.splash,
     debugLogDiagnostics: true,
     refreshListenable: authNotifier,
     redirect: (context, state) {
@@ -45,13 +46,16 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       final isLoginRoute = state.matchedLocation == Routes.login;
       final isSplashRoute = state.matchedLocation == Routes.splash;
 
+      // No redirigir si estamos en el splash (deja que el splash maneje la navegación)
+      if (isSplashRoute) return null;
+
       // Si está autenticado y en login, redirigir a home
-      if (isAuthenticated && (isLoginRoute || isSplashRoute)) {
+      if (isAuthenticated && isLoginRoute) {
         return Routes.home;
       }
 
       // Si no está autenticado y no está en login, redirigir a login
-      if (!isAuthenticated && !isLoginRoute && !isSplashRoute) {
+      if (!isAuthenticated && !isLoginRoute) {
         return Routes.login;
       }
 
@@ -61,7 +65,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       // Splash / Inicio
       GoRoute(
         path: Routes.splash,
-        redirect: (context, state) => Routes.login,
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const SplashScreen(),
+          transitionsBuilder: fadeTransition,
+        ),
       ),
 
       // Login
