@@ -1,5 +1,13 @@
 # SpaceX Launches App - Prueba Tecnica Evertec
 
+## Demo
+
+<p align="center">
+  <img src="docs/demo_1.gif" width="250" alt="Splash y Login" />
+  <img src="docs/demo_2.gif" width="250" alt="Home y Carrusel" />
+  <img src="docs/demo_3.gif" width="250" alt="Detalle y Perfil" />
+</p>
+
 Aplicacion Flutter que consume la API de SpaceX para mostrar informacion de lanzamientos espaciales, con funcionalidades avanzadas como autenticación local, modo offline, cambio de tema e internacionalización.
 
 ## Caracteristicas
@@ -210,14 +218,6 @@ Esta estrategia garantiza que la app sea funcional incluso sin conectividad, pri
 | Storage seguro | flutter_secure_storage | Encriptacion nativa por plataforma |
 
 > Para documentacion detallada ver [docs/TECHNICAL_DECISIONS.md](docs/TECHNICAL_DECISIONS.md)
-
-## Demo
-
-<p align="center">
-  <img src="docs/demo_1.gif" width="250" alt="Splash y Login" />
-  <img src="docs/demo_2.gif" width="250" alt="Home y Carrusel" />
-  <img src="docs/demo_3.gif" width="250" alt="Detalle y Perfil" />
-</p>
 
 ## Capturas de Pantalla
 
