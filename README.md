@@ -1,4 +1,4 @@
-# SpaceX Launches App - Prueba Tecnica Evertec
+# SpaceX Launches App - Prueba Técnica Evertec
 
 ## Demo
 
@@ -8,17 +8,17 @@
   <img src="docs/demo_3.gif" width="250" alt="Detalle y Perfil" />
 </p>
 
-Aplicacion Flutter que consume la API de SpaceX para mostrar informacion de lanzamientos espaciales, con funcionalidades avanzadas como autenticación local, modo offline, cambio de tema e internacionalización.
+Aplicación Flutter que consume la API de SpaceX para mostrar información de lanzamientos espaciales, con funcionalidades avanzadas como autenticación local, modo offline, cambio de tema e internacionalización.
 
-## Caracteristicas
+## Características
 
 ### Funcionalidades Principales
-- **Autenticacion local** con validacion de contrasena segura (8+ caracteres, mayuscula, numero, caracter especial)
+- **Autenticación local** con validación de contraseña segura (8+ caracteres, mayúscula, número, carácter especial)
 - **Carrusel horizontal** de lanzamientos con PageView y elemento central destacado
-- **Detalle de lanzamiento** con animacion Hero e informacion completa (cohete, launchpad, fecha, estado)
-- **Modo offline** con cache SQLite usando Drift
+- **Detalle de lanzamiento** con animación Hero e información completa (cohete, launchpad, fecha, estado)
+- **Modo offline** con caché SQLite usando Drift
 - **Cambio de tema** persistente (claro/oscuro/sistema)
-- **Internacionalizacion** ES/EN con easy_localization
+- **Internacionalización** ES/EN con easy_localization
 
 ### Funcionalidades Opcionales Implementadas
 - **Modales**: Bottom sheet para filtros, dialogs para confirmaciones
@@ -29,21 +29,21 @@ Aplicacion Flutter que consume la API de SpaceX para mostrar informacion de lanz
   - Skeleton loading con Shimmer
   - Animaciones de entrada con flutter_animate
 - **Filtros**: Por estado (Success/Failed/Upcoming) y por cohete
-- **Enlaces externos**: Webcast, Wikipedia, articulos relacionados
+- **Enlaces externos**: Webcast, Wikipedia, artículos relacionados
 
-## Stack Tecnologico
+## Stack Tecnológico
 
-| Categoria | Tecnologia |
+| Categoría | Tecnología |
 |-----------|------------|
 | Estado | `flutter_riverpod` |
 | Modelos | `freezed` + `json_serializable` |
 | HTTP | `dio` con interceptores |
-| Navegacion | `go_router` |
+| Navegación | `go_router` |
 | DB Local | `drift` (SQLite) |
 | Auth Storage | `flutter_secure_storage` |
 | Conectividad | `connectivity_plus` |
 | Animaciones | `flutter_animate` + `lottie` |
-| Imagenes | `cached_network_image` |
+| Imágenes | `cached_network_image` |
 | Loading | `shimmer` |
 | i18n | `easy_localization` |
 | Testing | `mocktail` |
@@ -53,7 +53,7 @@ Aplicacion Flutter que consume la API de SpaceX para mostrar informacion de lanz
 ```
 lib/
 ├── config/
-│   ├── routes/        # Configuracion de navegacion (go_router)
+│   ├── routes/        # Configuración de navegación (go_router)
 │   ├── themes/        # Temas, tokens de color y provider
 │   └── constants/     # Constantes de API y storage keys
 ├── core/
@@ -62,13 +62,13 @@ lib/
 │   ├── utils/         # Utilidades (validadores)
 │   └── error/         # Excepciones tipadas
 ├── features/
-│   ├── auth/          # Autenticacion (login, servicio, controller)
+│   ├── auth/          # Autenticación (login, servicio, controller)
 │   ├── home/          # Pantalla principal con carrusel de lanzamientos
 │   ├── detail/        # Detalle de lanzamiento
-│   └── profile/       # Perfil y configuracion (tema, idioma)
+│   └── profile/       # Perfil y configuración (tema, idioma)
 ├── shared/
 │   └── widgets/       # Widgets compartidos (shimmer, errores, banner)
-├── l10n/              # Archivos de traduccion (ES/EN)
+├── l10n/              # Archivos de traducción (ES/EN)
 └── main.dart
 ```
 
@@ -78,7 +78,7 @@ lib/
 - Dart 3.0 o superior
 - FVM (opcional, recomendado)
 
-## Instalacion
+## Instalación
 
 1. Clonar el repositorio:
 ```bash
@@ -91,12 +91,12 @@ cd evertec_technical_test
 flutter pub get
 ```
 
-3. Generar codigo (Freezed, Drift, etc.):
+3. Generar código (Freezed, Drift, etc.):
 ```bash
 dart run build_runner build --delete-conflicting-outputs
 ```
 
-4. Ejecutar la aplicacion:
+4. Ejecutar la aplicación:
 ```bash
 flutter run
 ```
@@ -122,7 +122,7 @@ flutter test --coverage
 
 ## API
 
-La aplicacion consume la [API de SpaceX](https://github.com/r-spacex/SpaceX-API) v5, una API REST gratuita con informacion sobre:
+La aplicación consume la [API de SpaceX](https://github.com/r-spacex/SpaceX-API) v5, una API REST gratuita con información sobre:
 
 - **Lanzamientos** (`/launches`): Historial completo de misiones
 - **Cohetes** (`/rockets`): Falcon 9, Falcon Heavy, Starship, etc.
@@ -130,13 +130,13 @@ La aplicacion consume la [API de SpaceX](https://github.com/r-spacex/SpaceX-API)
 
 ## Arquitectura
 
-La aplicacion sigue una arquitectura limpia con separacion de responsabilidades:
+La aplicación sigue una arquitectura limpia con separación de responsabilidades:
 
-- **Service**: Logica de negocio y acceso a datos (API/cache)
+- **Service**: Lógica de negocio y acceso a datos (API/caché)
 - **Controller**: Manejo de estado con Riverpod
 - **UI**: Widgets de Flutter
 
-### Patron Offline-First
+### Patrón Offline-First
 
 ```dart
 Future<List<LaunchModel>> getLaunches() async {
@@ -144,7 +144,7 @@ Future<List<LaunchModel>> getLaunches() async {
     if (await _networkInfo.isConnected) {
       final response = await _dio.get('/launches');
       final launches = _parseResponse(response);
-      await _launchDao.insertLaunches(launches); // Guardar en cache
+      await _launchDao.insertLaunches(launches); // Guardar en caché
       return launches;
     } else {
       return await _getFromCache();
@@ -152,77 +152,77 @@ Future<List<LaunchModel>> getLaunches() async {
   } on DioException catch (e) {
     final cached = await _getFromCache();
     if (cached.isNotEmpty) return cached;
-    throw NetworkException(message: 'Error de conexion');
+    throw NetworkException(message: 'Error de conexión');
   }
 }
 ```
 
-## Decisiones Tecnicas
+## Decisiones Técnicas
 
-### Por que Riverpod en lugar de BLoC/Cubit?
+### ¿Por qué Riverpod en lugar de BLoC/Cubit?
 
 | Aspecto | BLoC/Cubit | Riverpod |
 |---------|------------|----------|
-| Boilerplate | Alto (Events, States, BLoC) | Minimo (Provider + Notifier) |
-| Compile-time safety | No | Si |
-| Inyeccion de dependencias | Requiere get_it o similar | Integrada |
+| Boilerplate | Alto (Events, States, BLoC) | Mínimo (Provider + Notifier) |
+| Compile-time safety | No | Sí |
+| Inyección de dependencias | Requiere get_it o similar | Integrada |
 | Performance | Buena | Excelente (granular rebuilds) |
 
-**Argumentacion:**
-1. **Compile-time Safety**: Riverpod detecta errores en tiempo de compilacion, no en runtime, reduciendo bugs en produccion.
-2. **Menor codigo**: Un `StateNotifier` reemplaza la triada Event + State + BLoC, reduciendo lineas de codigo en ~60%.
-3. **DI integrada**: No requiere paquetes adicionales como `get_it` o `injectable`, simplificando el arbol de dependencias.
-4. **Auto-dispose**: Los providers se limpian automaticamente cuando no se usan, evitando memory leaks.
-5. **Evolucion de Provider**: Creado por Remi Rousselet (autor de Provider), representa la evolucion natural del patron.
+**Argumentación:**
+1. **Compile-time Safety**: Riverpod detecta errores en tiempo de compilación, no en runtime, reduciendo bugs en producción.
+2. **Menor código**: Un `StateNotifier` reemplaza la triada Event + State + BLoC, reduciendo líneas de código en ~60%.
+3. **DI integrada**: No requiere paquetes adicionales como `get_it` o `injectable`, simplificando el árbol de dependencias.
+4. **Auto-dispose**: Los providers se limpian automáticamente cuando no se usan, evitando memory leaks.
+5. **Evolución de Provider**: Creado por Remi Rousselet (autor de Provider), representa la evolución natural del patrón.
 
-### Por que Drift (SQLite) para persistencia?
+### ¿Por qué Drift (SQLite) para persistencia?
 
 **Alternativas evaluadas:**
-- **Isar**: NoSQL muy rapido, pero en proceso de deprecacion (no es opcion viable a largo plazo)
+- **Isar**: NoSQL muy rápido, pero en proceso de deprecación (no es opción viable a largo plazo)
 - **Hive**: NoSQL simple, pero limitado en queries complejas y relaciones
 - **SharedPreferences**: Solo key-value, insuficiente para datos estructurados
 
-**Argumentacion:**
-1. **Type-safety**: Las queries SQL se verifican en compilacion, evitando errores de sintaxis en runtime.
+**Argumentación:**
+1. **Type-safety**: Las queries SQL se verifican en compilación, evitando errores de sintaxis en runtime.
 2. **Relaciones**: Soporte completo para relaciones entre tablas (launches ↔ rockets ↔ launchpads).
-3. **Migraciones**: Sistema robusto de migraciones de schema, critico para actualizaciones de la app.
+3. **Migraciones**: Sistema robusto de migraciones de schema, crítico para actualizaciones de la app.
 4. **Performance**: SQLite es extremadamente eficiente y probado en millones de apps.
-5. **Queries complejas**: Filtros, ordenamiento y busqueda full-text sin limitaciones.
+5. **Queries complejas**: Filtros, ordenamiento y búsqueda full-text sin limitaciones.
 
-### Por que GoRouter para navegacion?
+### ¿Por qué GoRouter para navegación?
 
-1. **Declarativo**: Todas las rutas definidas en un solo archivo, facil de auditar y mantener.
-2. **Guards integrados**: Redireccion de autenticacion sin codigo adicional.
+1. **Declarativo**: Todas las rutas definidas en un solo archivo, fácil de auditar y mantener.
+2. **Guards integrados**: Redirección de autenticación sin código adicional.
 3. **Deep linking**: Soporte nativo para URLs, preparado para web y universal links.
-4. **Mantenido por Flutter**: Garantia de compatibilidad y actualizaciones.
+4. **Mantenido por Flutter**: Garantía de compatibilidad y actualizaciones.
 
 ### Estrategia Offline-First
 
 ```
-Con conexion:    API → Guardar en cache → Mostrar datos
-Sin conexion:    Cache → Mostrar + Banner offline
-Sin conexion + Sin cache: Error + Boton reintentar
+Con conexión:    API → Guardar en caché → Mostrar datos
+Sin conexión:    Caché → Mostrar + Banner offline
+Sin conexión + Sin caché: Error + Botón reintentar
 ```
 
 Esta estrategia garantiza que la app sea funcional incluso sin conectividad, priorizando la experiencia del usuario sobre la frescura de los datos.
 
 ### Resumen de Stack
 
-| Categoria | Paquete | Justificacion |
+| Categoría | Paquete | Justificación |
 |-----------|---------|---------------|
 | Estado | flutter_riverpod | Type-safe, menos boilerplate, DI integrada |
 | DB Local | drift | SQL type-safe, migraciones, relaciones |
-| HTTP | dio | Interceptors, cancelacion, retry |
-| Navegacion | go_router | Declarativo, guards, deep linking |
+| HTTP | dio | Interceptors, cancelación, retry |
+| Navegación | go_router | Declarativo, guards, deep linking |
 | Conectividad | connectivity_plus | Multiplataforma, stream reactivo |
-| Storage seguro | flutter_secure_storage | Encriptacion nativa por plataforma |
+| Storage seguro | flutter_secure_storage | Encriptación nativa por plataforma |
 
-> Para documentacion detallada ver [docs/TECHNICAL_DECISIONS.md](docs/TECHNICAL_DECISIONS.md)
+> Para documentación detallada ver [docs/TECHNICAL_DECISIONS.md](docs/TECHNICAL_DECISIONS.md)
 
 ## Capturas de Pantalla
 
 ### Login
-- Validacion de contrasena en tiempo real
+- Validación de contraseña en tiempo real
 - Requisitos visuales de seguridad
 
 ### Home
@@ -232,16 +232,16 @@ Esta estrategia garantiza que la app sea funcional incluso sin conectividad, pri
 - Pull to refresh
 
 ### Detalle
-- Animacion Hero desde el carrusel
-- Informacion completa: cohete, launchpad, fecha, estado
-- Enlaces a webcast, Wikipedia y articulos
-- Galeria de imagenes de Flickr
+- Animación Hero desde el carrusel
+- Información completa: cohete, launchpad, fecha, estado
+- Enlaces a webcast, Wikipedia y artículos
+- Galería de imágenes de Flickr
 
 ### Perfil
 - Selector de tema (claro/oscuro/sistema)
 - Selector de idioma (ES/EN)
-- Logout con confirmacion
+- Logout con confirmación
 
 ## Licencia
 
-Este proyecto es parte de una prueba técnica y su uso esta limitado a fines de evaluación.
+Este proyecto es parte de una prueba técnica y su uso está limitado a fines de evaluación.
