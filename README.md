@@ -213,7 +213,11 @@ Esta estrategia garantiza que la app sea funcional incluso sin conectividad, pri
 
 ## Demo
 
-<video src="https://github.com/Felypee/evertec_technical_test/raw/main/docs/video_evertec.mp4" controls width="300"></video>
+<p align="center">
+  <img src="docs/demo_1.gif" width="250" alt="Splash y Login" />
+  <img src="docs/demo_2.gif" width="250" alt="Home y Carrusel" />
+  <img src="docs/demo_3.gif" width="250" alt="Detalle y Perfil" />
+</p>
 
 ## Capturas de Pantalla
 
